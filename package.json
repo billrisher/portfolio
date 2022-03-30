@@ -1,19 +1,19 @@
 {
-  "name": "gatsby-starter-dimension-v2",
-  "description": "Gatsby Starter - Dimension V2",
+  "name": "Bill Risher",
+  "description": "Bill Risher",
   "version": "1.0.0",
-  "author": "Hunter Chang",
+  "author": "Bill Risher",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
     "gatsby": "^2.19.5",
     "gatsby-plugin-manifest": "^2.2.38",
     "gatsby-plugin-react-helmet": "^3.1.21",
     "gatsby-plugin-sass": "^2.1.27",
-    "node-sass": "^4.13.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
-    "react-icons": "^4.2.0"
+    "react-icons": "^4.2.0",
+    "sass": "^1.49.9"
   },
   "keywords": [
     "gatsby"

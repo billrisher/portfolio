@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import logo from '../images/logo.svg';
 
 const Header = props => (
   <header id="header" style={props.timeout ? { display: 'none' } : {}}>
     <div className="logo">
-      <span className="icon fa-terminal"></span>
+      <div style={{height: '100%', width: '100%', alignSelf: 'center', justifySelf: 'center', display: 'flex', justifyContent: 'center', alignContent: 'center'}}><img style={{width: '75%', alignSelf: 'center', justifySelf: 'center'}} src={logo}></img></div>
     </div>
     <div className="content">
       <div className="inner">

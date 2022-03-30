@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Bill Risher - Portfolio Site',
+    title: 'Bill Risher',
     author: 'Bill Risher',
     description: 'A developer with a dedication to keep software free and open forever.',
   },
