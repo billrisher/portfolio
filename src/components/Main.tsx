@@ -89,16 +89,18 @@ const Main = (props: MainProps) => {
           </p>
           <ul className="icons">
             <li>
-              <a href="https://linkedin.com/in/william-risher" className="icon fa-linkedin">
+              <a href="https://linkedin.com/in/william-risher" className="icon">
+                <i className="fa-brands fa-linkedin"></i>
                 <span className="label">LinkedIn</span>
               </a>
             </li>
             <li>
               <a
                 href="https://github.com/billrisher/"
-                className="icon fa-github"
+                className="icon"
               >
-                <span className="label">GitHub</span>
+                <i className="fa-brands fa-github"></i>
+                  <span className="label">GitHub</span>
               </a>
             </li>
           </ul>

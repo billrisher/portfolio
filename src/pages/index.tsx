@@ -1,10 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { HeadFC } from 'gatsby';
-import Layout from '../components/layout';
+import "@fontsource/noto-sans";
+import "../assets/fontawesome/css/fontawesome.min.css";
+import "../assets/fontawesome/css/brands.min.css";
 
 import Header from '../components/Header';
 import Main from '../components/Main';
 import Footer from '../components/Footer';
+import Layout from '../components/layout';
 
 const IndexPage = () => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
@@ -61,7 +64,7 @@ const IndexPage = () => {
   }
 
     return (
-      <Layout location={location}>
+      <Layout>
         <div className={`body ${loading} ${isArticleVisible ? 'is-article-visible' : ''}`}>
           <div id="wrapper">
             <Header onOpenArticle={handleOpenArticle} timeout={isTimeout} />
