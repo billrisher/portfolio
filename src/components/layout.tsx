@@ -1,6 +1,6 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode } from "react";
 
-import '../assets/scss/main.scss';
+import "../assets/scss/main.scss";
 
 interface LayoutProps {
   children: ReactNode;
@@ -10,19 +10,17 @@ interface LayoutProps {
 }
 
 const Layout = ({ children, location }: LayoutProps) => {
-  return <>
-    {location && location.pathname === '/' ? (
-      <div>
-        {children}
-      </div>
-    ) : (
-      <div id="wrapper" className="page">
-        <div>
-          {children}
+  return (
+    <>
+      {location && location.pathname === "/" ? (
+        <div>{children}</div>
+      ) : (
+        <div id="wrapper" className="page">
+          <div>{children}</div>
         </div>
-      </div>
-    )}
-  </>;
+      )}
+    </>
+  );
 };
 
 export default Layout;

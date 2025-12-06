@@ -1,5 +1,5 @@
-import React from 'react';
-import logo from '../images/logo.svg';
+import React from "react";
+import logo from "../images/logo.svg";
 
 interface HeaderProps {
   onOpenArticle: (article: string) => void;
@@ -7,10 +7,24 @@ interface HeaderProps {
 }
 
 const Header = ({ onOpenArticle, timeout }: HeaderProps) => (
-  <header id="header" style={timeout ? { display: 'none' } : {}}>
+  <header id="header" style={timeout ? { display: "none" } : {}}>
     <div className="logo">
-      <div style={{height: '100%', width: '100%', alignSelf: 'center', justifySelf: 'center', display: 'flex', justifyContent: 'center', alignContent: 'center'}}>
-        <img style={{width: '75%', alignSelf: 'center', justifySelf: 'center'}} src={logo} alt="Logo" />
+      <div
+        style={{
+          height: "100%",
+          width: "100%",
+          alignSelf: "center",
+          justifySelf: "center",
+          display: "flex",
+          justifyContent: "center",
+          alignContent: "center",
+        }}
+      >
+        <img
+          style={{ width: "75%", alignSelf: "center", justifySelf: "center" }}
+          src={logo}
+          alt="Logo"
+        />
       </div>
     </div>
     <div className="content">
@@ -26,7 +40,7 @@ const Header = ({ onOpenArticle, timeout }: HeaderProps) => (
         <li>
           <button
             onClick={() => {
-              onOpenArticle('about');
+              onOpenArticle("about");
             }}
           >
             About
@@ -35,7 +49,7 @@ const Header = ({ onOpenArticle, timeout }: HeaderProps) => (
         <li>
           <button
             onClick={() => {
-              onOpenArticle('projects');
+              onOpenArticle("projects");
             }}
           >
             Work
@@ -44,7 +58,7 @@ const Header = ({ onOpenArticle, timeout }: HeaderProps) => (
         <li>
           <button
             onClick={() => {
-              onOpenArticle('links');
+              onOpenArticle("links");
             }}
           >
             Links
@@ -53,7 +67,7 @@ const Header = ({ onOpenArticle, timeout }: HeaderProps) => (
         <li>
           <button
             onClick={() => {
-              onOpenArticle('contact');
+              onOpenArticle("contact");
             }}
           >
             Contact
