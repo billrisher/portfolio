@@ -1,42 +1,45 @@
-import PropTypes from 'prop-types'
-import React from 'react'
-import pic01 from '../images/pic01.jpg'
+import React from 'react';
 
-class Main extends React.Component {
-  render() {
-    let close = (
+interface MainProps {
+  isArticleVisible: boolean;
+  timeout: boolean;
+  articleTimeout: boolean;
+  article: string;
+  onCloseArticle: () => void;
+  setWrapperRef: (node: HTMLDivElement | null) => void;
+}
+
+const Main = (props: MainProps) => {
+    const close = (
       <div
         className="close"
         onClick={() => {
-          this.props.onCloseArticle()
+          props.onCloseArticle();
         }}
       ></div>
-    )
+    );
 
     return (
       <div
-        ref={this.props.setWrapperRef}
+        ref={props.setWrapperRef}
         id="main"
-        style={this.props.timeout ? { display: 'flex' } : { display: 'none' }}
+        style={props.timeout ? { display: 'flex' } : { display: 'none' }}
       >
         <article
           id="about"
-          className={`${this.props.article === 'about' ? 'active' : ''} ${
-            this.props.articleTimeout ? 'timeout' : ''
+          className={`${props.article === 'about' ? 'active' : ''} ${
+            props.articleTimeout ? 'timeout' : ''
           }`}
           style={{ display: 'none' }}
         >
           <h2 className="major">About Me</h2>
-          {/*<span className="image main">
-            <img src={pic01} alt="" />
-          </span>*/}
           <p>
             Hello! My name is Bill Risher and I've been writing code for 10 years of my life, 3 of which have been professional. I have a constant desire to learn new things
             and I don't settle on 'almost there'. Please feel free to take a look around my website and across my other social media platforms!
           </p>
           <p>
             I've had the unique opportunity to be a co-founder of a FinTech startup. Unfortunately, things didn't work out but the knowledge and wisdom that I was able to take
-            from that experience is not something you could ever put a price tag on. I now dedicate my time towards issues involving low-level programming and data analytics which 
+            from that experience is not something you could ever put a price tag on. I now dedicate my time towards issues involving low-level programming and data analytics which
             admittedly can be drastically different problem sets, but offer that same rewarding feeling once complete.
           </p>
           <p>
@@ -44,11 +47,11 @@ class Main extends React.Component {
           </p>
           {close}
         </article>
-        
+
         <article
           id="projects"
-          className={`${this.props.article === 'projects' ? 'active' : ''} ${
-            this.props.articleTimeout ? 'timeout' : ''
+          className={`${props.article === 'projects' ? 'active' : ''} ${
+            props.articleTimeout ? 'timeout' : ''
           }`}
           style={{ display: 'none' }}
         >
@@ -57,7 +60,7 @@ class Main extends React.Component {
             <h3><a className="icon fa-github" href="https://github.com/billrisher/openalgotrader"> OpenAlgoTrader</a></h3>
             <p>
               OpenAlgoTrader, better known as <strong>OAT</strong>, is an open-source algorithmic-trading framework written in Rust.
-              I started development on OAT in response to there being very few resources to bootstrap new algorithmic traders. 
+              I started development on OAT in response to there being very few resources to bootstrap new algorithmic traders.
               With Quantopian shuttering its collaborative platform in late 2020, new traders are left with very few resources to understand the field.
               OAT's goal is to lessen the barrier of entry into the world of algorithmic trading and provide a welcoming experience for those new to algorithmic trading.
             </p>
@@ -75,8 +78,8 @@ class Main extends React.Component {
         </article>
         <article
           id="links"
-          className={`${this.props.article === 'links' ? 'active' : ''} ${
-            this.props.articleTimeout ? 'timeout' : ''
+          className={`${props.article === 'links' ? 'active' : ''} ${
+            props.articleTimeout ? 'timeout' : ''
           }`}
           style={{ display: 'none' }}
         >
@@ -104,8 +107,8 @@ class Main extends React.Component {
 
         <article
           id="contact"
-          className={`${this.props.article === 'contact' ? 'active' : ''} ${
-            this.props.articleTimeout ? 'timeout' : ''
+          className={`${props.article === 'contact' ? 'active' : ''} ${
+            props.articleTimeout ? 'timeout' : ''
           }`}
           style={{ display: 'none' }}
         >
@@ -116,17 +119,7 @@ class Main extends React.Component {
           {close}
         </article>
       </div>
-    )
+    );
   }
-}
 
-Main.propTypes = {
-  route: PropTypes.object,
-  article: PropTypes.string,
-  articleTimeout: PropTypes.bool,
-  onCloseArticle: PropTypes.func,
-  timeout: PropTypes.bool,
-  setWrapperRef: PropTypes.func.isRequired,
-}
-
-export default Main
+export default Main;

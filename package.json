@@ -1,35 +1,35 @@
 {
   "name": "billrisher",
   "description": "Bill Risher",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "author": "Bill Risher",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.3",
-    "gatsby": "^2.19.5",
-    "gatsby-plugin-manifest": "^2.2.38",
-    "gatsby-plugin-react-helmet": "^3.1.21",
-    "gatsby-plugin-sass": "^2.1.27",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-helmet": "^5.2.1",
-    "react-icons": "^4.2.0",
-    "sass": "^1.49.9"
+    "@fortawesome/fontawesome-free": "^7.1.0",
+    "gatsby": "5.15.0",
+    "gatsby-plugin-manifest": "5.15.0",
+    "gatsby-plugin-sass": "6.15.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-icons": "5.5.0",
+    "sass": "1.94.2"
   },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write '**/*.js'",
+    "format": "prettier --write '**/*.{js,jsx,ts,tsx}'",
+    "type-check": "tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "prettier": "^1.19.1"
+    "@types/node": "^24.10.1",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "gatsby-plugin-typescript": "^5.15.0",
+    "prettier": "3.7.4",
+    "typescript": "^5.9.3"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/billrisher/portfolio"
   }
 }

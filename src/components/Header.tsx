@@ -1,11 +1,17 @@
-import PropTypes from 'prop-types'
-import React from 'react'
+import React from 'react';
 import logo from '../images/logo.svg';
 
-const Header = props => (
-  <header id="header" style={props.timeout ? { display: 'none' } : {}}>
+interface HeaderProps {
+  onOpenArticle: (article: string) => void;
+  timeout: boolean;
+}
+
+const Header = ({ onOpenArticle, timeout }: HeaderProps) => (
+  <header id="header" style={timeout ? { display: 'none' } : {}}>
     <div className="logo">
-      <div style={{height: '100%', width: '100%', alignSelf: 'center', justifySelf: 'center', display: 'flex', justifyContent: 'center', alignContent: 'center'}}><img style={{width: '75%', alignSelf: 'center', justifySelf: 'center'}} src={logo}></img></div>
+      <div style={{height: '100%', width: '100%', alignSelf: 'center', justifySelf: 'center', display: 'flex', justifyContent: 'center', alignContent: 'center'}}>
+        <img style={{width: '75%', alignSelf: 'center', justifySelf: 'center'}} src={logo} alt="Logo" />
+      </div>
     </div>
     <div className="content">
       <div className="inner">
@@ -20,7 +26,7 @@ const Header = props => (
         <li>
           <button
             onClick={() => {
-              props.onOpenArticle('about')
+              onOpenArticle('about');
             }}
           >
             About
@@ -29,7 +35,7 @@ const Header = props => (
         <li>
           <button
             onClick={() => {
-              props.onOpenArticle('projects')
+              onOpenArticle('projects');
             }}
           >
             Work
@@ -38,7 +44,7 @@ const Header = props => (
         <li>
           <button
             onClick={() => {
-              props.onOpenArticle('links')
+              onOpenArticle('links');
             }}
           >
             Links
@@ -47,7 +53,7 @@ const Header = props => (
         <li>
           <button
             onClick={() => {
-              props.onOpenArticle('contact')
+              onOpenArticle('contact');
             }}
           >
             Contact
@@ -56,11 +62,6 @@ const Header = props => (
       </ul>
     </nav>
   </header>
-)
+);
 
-Header.propTypes = {
-  onOpenArticle: PropTypes.func,
-  timeout: PropTypes.bool,
-}
-
-export default Header
+export default Header;

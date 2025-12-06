@@ -1,0 +1,7 @@
+onlyBuiltDependencies:
+  - core-js-pure
+  - gatsby
+  - gatsby-cli
+  - lmdb
+  - msgpackr-extract
+  - sharp

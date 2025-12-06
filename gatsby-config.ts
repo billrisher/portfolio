@@ -1,11 +1,12 @@
-module.exports = {
+import type { GatsbyConfig } from 'gatsby';
+
+const config: GatsbyConfig = {
   siteMetadata: {
     title: 'Bill Risher',
     author: 'Bill Risher',
     description: 'A developer with a dedication to keep software free and open forever.',
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -18,6 +19,17 @@ module.exports = {
         icon: 'src/images/br.png', // This path is relative to the root of the site.
       },
     },
-    'gatsby-plugin-sass',
+    {
+      resolve: 'gatsby-plugin-sass',
+      options: {
+        sassOptions: {
+          quietDeps: true,
+          silenceDeprecations: ['legacy-js-api', 'import', 'global-builtin', 'slash-div', 'color-functions'],
+        },
+      },
+    },
+    'gatsby-plugin-typescript',
   ],
-}
+};
+
+export default config;
