@@ -1,5 +1,7 @@
 import React from "react";
+import { FocusTrap } from "focus-trap-react";
 import { Article } from "./Article";
+import OpenInNewIcon from "../images/open-in-new.svg";
 
 interface MainProps {
   isArticleVisible: boolean;
@@ -11,7 +13,7 @@ interface MainProps {
 }
 
 const aboutBody = (
-  <>
+  <div>
     <p>
       Hello! My name is Bill Risher and I've been writing code for 10 years of
       my life, 3 of which have been professional. I have a constant desire to
@@ -31,19 +33,27 @@ const aboutBody = (
       My journey as a developer is far from complete, and I cannot wait to see
       where it takes me!
     </p>
-  </>
+  </div>
 );
 
 const projectsBody = (
-  <>
+  <div>
     <div>
       <h3>
         <a
-          className="icon fa-github"
+          className="icon fa-github project-link"
           href="https://github.com/billrisher/openalgotrader"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="OpenAlgoTrader on GitHub (opens in new tab)"
         >
-          {" "}
-          OpenAlgoTrader
+          Open Algo Trader{" "}
+          <img
+            src={OpenInNewIcon}
+            alt=""
+            aria-hidden="true"
+            className="external-icon"
+          />
         </a>
       </h3>
       <p>
@@ -61,11 +71,19 @@ const projectsBody = (
     <div>
       <h3>
         <a
-          className="icon fa-github"
+          className="icon fa-github project-link"
           href="https://github.com/billrisher/moneyprint-full"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="MoneyPrint on GitHub (opens in new tab)"
         >
-          {" "}
-          MoneyPrint
+          MoneyPrint{" "}
+          <img
+            src={OpenInNewIcon}
+            alt=""
+            aria-hidden="true"
+            className="external-icon"
+          />
         </a>
       </h3>
       <p>
@@ -76,82 +94,92 @@ const projectsBody = (
         as well as the ability to save your progress and continue later.
       </p>
     </div>
-  </>
+  </div>
 );
 
 const linksBody = (
-  <>
+  <div>
     <p>
       Feel free to connect with me on any of the below platforms, I always enjoy
       expanding my network!
     </p>
     <ul className="icons">
       <li>
-        <a href="https://linkedin.com/in/william-risher" className="icon">
-          <i className="fa-brands fa-linkedin"></i>
+        <a
+          href="https://linkedin.com/in/william-risher"
+          className="icon"
+          aria-label="Connect on LinkedIn"
+        >
+          <i className="fa-brands fa-linkedin" aria-hidden="true"></i>
           <span className="label">LinkedIn</span>
         </a>
       </li>
       <li>
-        <a href="https://github.com/billrisher/" className="icon">
-          <i className="fa-brands fa-github"></i>
+        <a
+          href="https://github.com/billrisher/"
+          className="icon"
+          aria-label="View GitHub profile"
+        >
+          <i className="fa-brands fa-github" aria-hidden="true"></i>
           <span className="label">GitHub</span>
         </a>
       </li>
     </ul>
-  </>
+  </div>
 );
 
 const contactBody = (
-  <>
+  <div>
     <p>
       If you would like to get into contact with me, please don't hesitate to
       message me on any of my social media platforms or send me an email, at{" "}
       <a href="mailto:me@billrisher.com">me@billrisher.com</a>.
     </p>
-  </>
+  </div>
 );
 
 const Main = (props: MainProps) => {
   return (
-    <div
-      ref={props.setWrapperRef}
-      id="main"
-      style={props.timeout ? { display: "flex" } : { display: "none" }}
-    >
-      <Article
-        id="about"
-        title="About Me"
-        body={aboutBody}
-        onClose={props.onCloseArticle}
-        isActive={props.article === "about"}
-        isTimeout={props.articleTimeout}
-      />
-      <Article
-        id="projects"
-        title="My Work"
-        body={projectsBody}
-        onClose={props.onCloseArticle}
-        isActive={props.article === "projects"}
-        isTimeout={props.articleTimeout}
-      />
-      <Article
-        id="links"
-        title="My Links"
-        body={linksBody}
-        onClose={props.onCloseArticle}
-        isActive={props.article === "links"}
-        isTimeout={props.articleTimeout}
-      />
-      <Article
-        id="contact"
-        title="Contact Me"
-        body={contactBody}
-        onClose={props.onCloseArticle}
-        isActive={props.article === "contact"}
-        isTimeout={props.articleTimeout}
-      />
-    </div>
+    <FocusTrap active={props.isArticleVisible && props.articleTimeout}>
+      <div
+        ref={props.setWrapperRef}
+        id="main"
+        style={props.timeout ? { display: "flex" } : { display: "none" }}
+      >
+        <Article
+          id="about"
+          title="About Me"
+          body={aboutBody}
+          onClose={props.onCloseArticle}
+          isActive={props.article === "about"}
+          isTimeout={props.articleTimeout}
+        />
+        <Article
+          id="projects"
+          title="My Work"
+          body={projectsBody}
+          onClose={props.onCloseArticle}
+          isActive={props.article === "projects"}
+          isTimeout={props.articleTimeout}
+        />
+        <Article
+          id="links"
+          title="My Links"
+          body={linksBody}
+          onClose={props.onCloseArticle}
+          isActive={props.article === "links"}
+          isTimeout={props.articleTimeout}
+        />
+        <Article
+          id="contact"
+          title="Contact Me"
+          body={contactBody}
+          onClose={props.onCloseArticle}
+          isActive={props.article === "contact"}
+          isTimeout={props.articleTimeout}
+        />
+      </div>
+    </FocusTrap>
   );
 };
 

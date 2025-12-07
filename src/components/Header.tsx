@@ -4,10 +4,21 @@ import logo from "../images/logo.svg";
 interface HeaderProps {
   onOpenArticle: (article: string) => void;
   timeout: boolean;
+  article: string;
+  isArticleVisible: boolean;
 }
 
-const Header = ({ onOpenArticle, timeout }: HeaderProps) => (
-  <header id="header" style={timeout ? { display: "none" } : {}}>
+const Header = ({
+  onOpenArticle,
+  timeout,
+  article,
+  isArticleVisible,
+}: HeaderProps) => (
+  <header
+    id="header"
+    style={timeout ? { display: "none" } : {}}
+    aria-hidden={isArticleVisible}
+  >
     <div className="logo">
       <div
         style={{
@@ -42,6 +53,9 @@ const Header = ({ onOpenArticle, timeout }: HeaderProps) => (
             onClick={() => {
               onOpenArticle("about");
             }}
+            aria-expanded={article === "about"}
+            aria-controls="about"
+            aria-haspopup="dialog"
           >
             About
           </button>
@@ -51,6 +65,9 @@ const Header = ({ onOpenArticle, timeout }: HeaderProps) => (
             onClick={() => {
               onOpenArticle("projects");
             }}
+            aria-expanded={article === "projects"}
+            aria-controls="projects"
+            aria-haspopup="dialog"
           >
             Work
           </button>
@@ -60,6 +77,9 @@ const Header = ({ onOpenArticle, timeout }: HeaderProps) => (
             onClick={() => {
               onOpenArticle("links");
             }}
+            aria-expanded={article === "links"}
+            aria-controls="links"
+            aria-haspopup="dialog"
           >
             Links
           </button>
@@ -69,6 +89,9 @@ const Header = ({ onOpenArticle, timeout }: HeaderProps) => (
             onClick={() => {
               onOpenArticle("contact");
             }}
+            aria-expanded={article === "contact"}
+            aria-controls="contact"
+            aria-haspopup="dialog"
           >
             Contact
           </button>

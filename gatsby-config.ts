@@ -73,12 +73,8 @@ const config: GatsbyConfig = {
       resolve: "gatsby-plugin-netlify",
       options: {
         headers: {
-          "/*": [
-            "Cache-Control: public, max-age=31536000, immutable",
-          ],
-          "/page-data/*": [
-            "Cache-Control: public, max-age=0, must-revalidate",
-          ],
+          "/*": ["Cache-Control: public, max-age=31536000, immutable"],
+          "/page-data/*": ["Cache-Control: public, max-age=0, must-revalidate"],
         },
       },
     },

@@ -9,21 +9,35 @@ type ArticleProps = {
   isTimeout: boolean;
 };
 
-export const Article = ({ id, title, body, onClose, isActive, isTimeout }) => {
+export const Article = ({
+  id,
+  title,
+  body,
+  onClose,
+  isActive,
+  isTimeout,
+}: ArticleProps) => {
   return (
     <article
       id={id}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby={`${id}-title`}
       className={`${isActive ? "active" : ""} ${isTimeout ? "timeout" : ""}`}
       style={{ display: "none" }}
     >
-      <h2 className="major">{title}</h2>
+      <h2 id={`${id}-title`} className="major">
+        {title}
+      </h2>
       {body}
-      <div
+      <button
+        type="button"
         className="close"
-        onClick={() => {
-          onClose();
-        }}
-      ></div>
+        onClick={onClose}
+        aria-label="Close"
+      >
+        <span aria-hidden="true"></span>
+      </button>
     </article>
   );
 };

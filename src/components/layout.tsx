@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import A11yChecker from "./A11yChecker";
 
 import "../assets/scss/main.scss";
 
@@ -11,7 +12,7 @@ interface LayoutProps {
 
 const Layout = ({ children, location }: LayoutProps) => {
   return (
-    <>
+    <A11yChecker>
       {location && location.pathname === "/" ? (
         <div>{children}</div>
       ) : (
@@ -19,7 +20,7 @@ const Layout = ({ children, location }: LayoutProps) => {
           <div>{children}</div>
         </div>
       )}
-    </>
+    </A11yChecker>
   );
 };
 
