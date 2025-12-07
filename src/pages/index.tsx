@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import Main from "../components/Main";
 import Footer from "../components/Footer";
 import Layout from "../components/layout";
+import { TIMEOUT_TIME_MS, LOADING_TIME_MS } from "../constants";
 
 const IndexPage = () => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
@@ -20,7 +21,7 @@ const IndexPage = () => {
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       setLoading("");
-    }, 100);
+    }, LOADING_TIME_MS);
 
     return () => {
       clearTimeout(timeoutId);
@@ -37,16 +38,18 @@ const IndexPage = () => {
 
     setIsArticleVisible(true);
     setArticle(article);
+
     setTimeout(() => {
       setIsTimeout(true);
-    }, 325);
+    }, TIMEOUT_TIME_MS);
+
     setTimeout(() => {
       setArticleTimeout(true);
       // Focus on the close button after modal opens
       const modal = document.getElementById(article);
       const closeButton = modal?.querySelector(".close") as HTMLElement;
       closeButton?.focus();
-    }, 350);
+    }, TIMEOUT_TIME_MS);
   }, []);
 
   const handleCloseArticle = useCallback(() => {
@@ -54,10 +57,10 @@ const IndexPage = () => {
     setArticle("");
     setTimeout(() => {
       setIsTimeout(false);
-    }, 325);
+    }, TIMEOUT_TIME_MS);
     setTimeout(() => {
       setArticleTimeout(false);
-    }, 350);
+    }, TIMEOUT_TIME_MS);
   }, []);
 
   // Return focus after closing with a separate effect
@@ -65,7 +68,7 @@ const IndexPage = () => {
     if (!isArticleVisible && lastFocusedElement) {
       const timeoutId = setTimeout(() => {
         lastFocusedElement.focus();
-      }, 350);
+      }, TIMEOUT_TIME_MS);
       return () => clearTimeout(timeoutId);
     }
   }, [isArticleVisible, lastFocusedElement]);
