@@ -82,6 +82,7 @@ export default IndexPage;
 export const Head: HeadFC = () => (
   <>
     <title>Bill Risher</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
       content="A developer with a dedication to keep software free and open forever."

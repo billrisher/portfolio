@@ -32,10 +32,11 @@
     @include padding(2.5rem, 2.5rem, (2rem, 0, 1rem, 0));
     position: relative;
     width: 40rem;
-    max-width: 100%;
+    max-width: calc(100vw - 4rem);
     background-color: color.scale(_palette(bg), $alpha: -15%);
     border-radius: _size(border-radius);
     opacity: 0;
+    box-sizing: border-box;
 
     &.timeout {
       display: none;
@@ -100,13 +101,16 @@
   @include breakpoint(small) {
     article {
       @include padding(2rem, 2rem, (1.5rem, 0, 0.5rem, 0));
+      max-width: calc(100vw - 4rem);
       .close {
+        width: 4.5rem;
+        height: 4.5rem;
         &:before {
-          top: 0.875rem;
-          left: 0.875rem;
-          width: 2.25rem;
-          height: 2.25rem;
-          background-size: 14px 14px;
+          top: 1rem;
+          left: 1rem;
+          width: 2.5rem;
+          height: 2.5rem;
+          background-size: 18px 18px;
         }
       }
     }
@@ -115,6 +119,7 @@
   @include breakpoint(xsmall) {
     article {
       @include padding(2rem, 1.5rem, (1rem, 0, 0.5rem, 0));
+      max-width: calc(100vw - 2rem);
     }
   }
 }

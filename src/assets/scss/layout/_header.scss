@@ -238,6 +238,18 @@
         line-height: 1.875;
       }
     }
+
+    nav {
+      ul {
+        li {
+          button {
+            height: 3.25rem;
+            line-height: 3.25rem;
+            font-size: 0.85rem;
+          }
+        }
+      }
+    }
   }
 
   @include breakpoint(xsmall) {
@@ -263,11 +275,13 @@
             border-top: 0;
           }
 
-          a {
-            height: 3rem;
-            line-height: 3rem;
+          a,
+          button {
+            height: 3.5rem;
+            line-height: 3.5rem;
             min-width: 0;
             width: 100%;
+            font-size: 0.9rem;
           }
         }
       }

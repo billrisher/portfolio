@@ -20,6 +20,14 @@
   margin-top: 2rem;
   text-align: center;
 
+  @include breakpoint(small) {
+    padding-top: 0.75rem;
+  }
+
+  @include breakpoint(xsmall) {
+    padding-top: 0.5rem;
+  }
+
   .copyright {
     letter-spacing: _font(letter-spacing);
     font-size: 0.6rem;

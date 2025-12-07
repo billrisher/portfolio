@@ -69,6 +69,13 @@ ul {
         &:active {
           background-color: _palette(border-bg-alt);
         }
+
+        @include breakpoint(small) {
+          height: 3rem;
+          line-height: 3rem;
+          width: 3rem;
+          font-size: 1.25rem;
+        }
       }
     }
   }

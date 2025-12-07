@@ -16,11 +16,11 @@ html {
   }
 
   @include breakpoint(small) {
-    font-size: 11pt;
+    font-size: 13pt;
   }
 
   @include breakpoint(xxsmall) {
-    font-size: 10pt;
+    font-size: 12pt;
   }
 }
 
@@ -33,6 +33,8 @@ textarea {
   font-weight: _font(weight);
   font-size: 1rem;
   line-height: 1.65;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 a {
@@ -92,6 +94,7 @@ h6 {
     width: -webkit-max-content;
     width: -ms-max-content;
     width: max-content;
+    max-width: 100%;
     padding-bottom: 0.5rem;
     margin: 0 0 (_size(element-margin) * 1) 0;
   }
