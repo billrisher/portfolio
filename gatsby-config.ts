@@ -9,6 +9,24 @@ const config: GatsbyConfig = {
   },
   plugins: [
     {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "images",
+        path: `${__dirname}/src/images`,
+      },
+    },
+    "gatsby-plugin-image",
+    {
+      resolve: "gatsby-plugin-sharp",
+      options: {
+        defaults: {
+          formats: ["auto", "webp"],
+          quality: 85,
+          placeholder: "blurred",
+        },
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: "Bill Risher",
@@ -36,6 +54,34 @@ const config: GatsbyConfig = {
       },
     },
     "gatsby-plugin-typescript",
+    {
+      resolve: "gatsby-plugin-purgecss",
+      options: {
+        printRejected: false,
+        develop: false,
+        tailwind: false,
+        ignore: ["/fontawesome/"],
+        purgeCSSOptions: {
+          safelist: {
+            standard: ["active", "timeout", "is-loading", "is-article-visible"],
+            deep: [/^fa-/, /^icon$/],
+          },
+        },
+      },
+    },
+    {
+      resolve: "gatsby-plugin-netlify",
+      options: {
+        headers: {
+          "/*": [
+            "Cache-Control: public, max-age=31536000, immutable",
+          ],
+          "/page-data/*": [
+            "Cache-Control: public, max-age=0, must-revalidate",
+          ],
+        },
+      },
+    },
   ],
 };
 

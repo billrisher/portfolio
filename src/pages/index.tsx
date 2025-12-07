@@ -1,8 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import { HeadFC } from "gatsby";
-import "@fontsource/noto-sans";
-import "../assets/fontawesome/css/fontawesome.min.css";
-import "../assets/fontawesome/css/brands.min.css";
 
 import Header from "../components/Header";
 import Main from "../components/Main";
